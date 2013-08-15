@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "UICustomDatePicker.h"
 
 @interface ViewController ()
-
+{
+   IBOutlet UICustomDatePicker* _customPicker;
+}
 @end
 
 @implementation ViewController
@@ -17,6 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _customPicker.backgroundColor = [UIColor grayColor];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

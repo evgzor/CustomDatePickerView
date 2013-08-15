@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8405001817BCE981002FBB27 /* UICustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405001417BCE981002FBB27 /* UICustomDatePicker.m */; };
+		8405001917BCE981002FBB27 /* UICustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405001517BCE981002FBB27 /* UICustomPickerView.m */; };
+		8405001E17BCE9A6002FBB27 /* year.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001B17BCE9A6002FBB27 /* year.png */; };
+		8405001F17BCE9A6002FBB27 /* month.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001C17BCE9A6002FBB27 /* month.png */; };
+		8405002017BCE9A6002FBB27 /* day.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001D17BCE9A6002FBB27 /* day.png */; };
 		84AAB22D17BB5EB100A3F547 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AAB22C17BB5EB100A3F547 /* UIKit.framework */; };
 		84AAB22F17BB5EB100A3F547 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AAB22E17BB5EB100A3F547 /* Foundation.framework */; };
 		84AAB23117BB5EB100A3F547 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AAB23017BB5EB100A3F547 /* CoreGraphics.framework */; };
@@ -22,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8405001417BCE981002FBB27 /* UICustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICustomDatePicker.m; path = UICustomDatePicker/UICustomDatePicker.m; sourceTree = "<group>"; };
+		8405001517BCE981002FBB27 /* UICustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICustomPickerView.m; path = UICustomDatePicker/UICustomPickerView.m; sourceTree = "<group>"; };
+		8405001617BCE981002FBB27 /* UICustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICustomPickerView.h; path = UICustomDatePicker/UICustomPickerView.h; sourceTree = "<group>"; };
+		8405001717BCE981002FBB27 /* UICustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICustomDatePicker.h; path = UICustomDatePicker/UICustomDatePicker.h; sourceTree = "<group>"; };
+		8405001B17BCE9A6002FBB27 /* year.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = year.png; path = images/year.png; sourceTree = "<group>"; };
+		8405001C17BCE9A6002FBB27 /* month.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = month.png; path = images/month.png; sourceTree = "<group>"; };
+		8405001D17BCE9A6002FBB27 /* day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = day.png; path = images/day.png; sourceTree = "<group>"; };
 		84AAB22917BB5EB100A3F547 /* CustomDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AAB22C17BB5EB100A3F547 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84AAB22E17BB5EB100A3F547 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,6 +67,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8405001317BCE966002FBB27 /* CustomDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				8405001417BCE981002FBB27 /* UICustomDatePicker.m */,
+				8405001517BCE981002FBB27 /* UICustomPickerView.m */,
+				8405001617BCE981002FBB27 /* UICustomPickerView.h */,
+				8405001717BCE981002FBB27 /* UICustomDatePicker.h */,
+			);
+			name = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		8405001A17BCE98B002FBB27 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8405001B17BCE9A6002FBB27 /* year.png */,
+				8405001C17BCE9A6002FBB27 /* month.png */,
+				8405001D17BCE9A6002FBB27 /* day.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		84AAB22017BB5EB100A3F547 = {
 			isa = PBXGroup;
 			children = (
@@ -85,12 +118,14 @@
 		84AAB23217BB5EB100A3F547 /* CustomDatePicker */ = {
 			isa = PBXGroup;
 			children = (
+				8405001317BCE966002FBB27 /* CustomDatePickerView */,
 				84AAB23B17BB5EB100A3F547 /* AppDelegate.h */,
 				84AAB23C17BB5EB100A3F547 /* AppDelegate.m */,
 				84AAB24417BB5EB100A3F547 /* ViewController.h */,
 				84AAB24517BB5EB100A3F547 /* ViewController.m */,
 				84AAB24717BB5EB100A3F547 /* ViewController_iPhone.xib */,
 				84AAB24A17BB5EB100A3F547 /* ViewController_iPad.xib */,
+				8405001A17BCE98B002FBB27 /* Images */,
 				84AAB23317BB5EB100A3F547 /* Supporting Files */,
 			);
 			path = CustomDatePicker;
@@ -167,6 +202,9 @@
 				84AAB24317BB5EB100A3F547 /* Default-568h@2x.png in Resources */,
 				84AAB24917BB5EB100A3F547 /* ViewController_iPhone.xib in Resources */,
 				84AAB24C17BB5EB100A3F547 /* ViewController_iPad.xib in Resources */,
+				8405001E17BCE9A6002FBB27 /* year.png in Resources */,
+				8405001F17BCE9A6002FBB27 /* month.png in Resources */,
+				8405002017BCE9A6002FBB27 /* day.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +218,8 @@
 				84AAB23917BB5EB100A3F547 /* main.m in Sources */,
 				84AAB23D17BB5EB100A3F547 /* AppDelegate.m in Sources */,
 				84AAB24617BB5EB100A3F547 /* ViewController.m in Sources */,
+				8405001817BCE981002FBB27 /* UICustomDatePicker.m in Sources */,
+				8405001917BCE981002FBB27 /* UICustomPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +315,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePicker/CustomDatePicker-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePicker/CustomDatePicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -286,6 +327,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePicker/CustomDatePicker-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePicker/CustomDatePicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -310,6 +352,7 @@
 				84AAB25117BB5EB100A3F547 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
