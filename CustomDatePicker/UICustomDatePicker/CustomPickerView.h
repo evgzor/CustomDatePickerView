@@ -5,9 +5,9 @@
 
 typedef void (^CustomPickerViewControllerDidSpinCallback)(int);
 
-@protocol UICustomPickerControllerDelegate;
+@protocol CustomPickerControllerDelegate;
 
-@interface UICustomPickerView : UIView <UITableViewDelegate, UITableViewDataSource>
+@interface CustomPickerView : UIView <UITableViewDelegate, UITableViewDataSource>
 {
     BOOL isSpinning;
     BOOL isAnimating;
@@ -22,7 +22,7 @@ typedef void (^CustomPickerViewControllerDidSpinCallback)(int);
 
 @property(nonatomic,retain) UITableView *tableView;
 @property(nonatomic,retain) NSMutableArray *strings;
-@property(nonatomic,assign) id<UICustomPickerControllerDelegate> delegate;
+@property(nonatomic,assign) id<CustomPickerControllerDelegate> delegate;
 @property(nonatomic,assign) BOOL isSpinning;
 @property(nonatomic,readonly) NSString *selectedString;
 @property(nonatomic,assign) NSInteger selectedIndex;
@@ -40,8 +40,8 @@ typedef void (^CustomPickerViewControllerDidSpinCallback)(int);
 
 @end
 
-@protocol UICustomPickerControllerDelegate <NSObject>
-- (void)pickerControllerDidSpin:(UICustomPickerView *)controller;
+@protocol CustomPickerControllerDelegate <NSObject>
+- (void)pickerControllerDidSpin:(CustomPickerView *)controller;
 @required
-- (void)pickerController:(UICustomPickerView *)dial didSnapToString:(NSString *)string;
+- (void)pickerController:(CustomPickerView *)dial didSnapToString:(NSString *)string;
 @end

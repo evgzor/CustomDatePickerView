@@ -1,19 +1,19 @@
 
-#import "UICustomPickerView.h"
+#import "CustomPickerView.h"
 
 #define ROW_HEIGHT 34
 
 
 static const int kPickerLabelTag = 2012;
 
-@interface UICustomPickerView(PrivateMethods)
+@interface CustomPickerView(PrivateMethods)
 - (void)snap;
 -(UIImage *)addText:(UIImage *)img text:(NSString *)text;
 - (UIImage *)imageWithColor:(UIColor *)color forRect:(CGRect) rect;
 
 @end
 
-@implementation UICustomPickerView
+@implementation CustomPickerView
 
 @synthesize tableView, strings, delegate;
 @synthesize isSpinning = _isSpinning;

@@ -13,7 +13,7 @@ typedef void (^CustomDatePickerChangeCallback)(NSDate*);
 @protocol CustomDatePickerDelegate;
 
 
-@interface UICustomDatePicker : UIView
+@interface CustomDatePicker : UIView
 {
     
     NSCalendar *_calendar;
@@ -46,6 +46,6 @@ typedef void (^CustomDatePickerChangeCallback)(NSDate*);
 
 @optional
 
--(void)datePickerDateChange:(UICustomDatePicker*)piker forDate:(NSDate*) date;
+-(void)datePickerDateChange:(CustomDatePicker*)piker forDate:(NSDate*) date;
 
 @end

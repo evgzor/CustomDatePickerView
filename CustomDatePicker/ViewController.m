@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "UICustomDatePicker.h"
+#import "CustomDatePicker.h"
 
 @interface ViewController ()
 {
-   IBOutlet UICustomDatePicker* _customPicker;
+   IBOutlet CustomDatePicker* _customPicker;
 }
 @end
 

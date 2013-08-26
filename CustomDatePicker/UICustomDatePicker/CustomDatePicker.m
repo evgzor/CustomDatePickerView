@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 AETP. All rights reserved.
 //
 
-#import "UICustomDatePicker.h"
-#import "UICustomPickerView.h"
+#import "CustomDatePicker.h"
+#import "CustomPickerView.h"
 
 #define MIN_YEAR_VALUE 1900 
 
-@interface  UICustomDatePicker() <UICustomPickerControllerDelegate>
+@interface  CustomDatePicker() <CustomPickerControllerDelegate>
 {
-    UICustomPickerView* _dayPicker;
-    UICustomPickerView* _yearPicker;
-    UICustomPickerView* _mounthPicker;
+    CustomPickerView* _dayPicker;
+    CustomPickerView* _yearPicker;
+    CustomPickerView* _mounthPicker;
     
     NSInteger _year;
     
@@ -34,7 +34,7 @@
  
 @end
 
-@implementation UICustomDatePicker
+@implementation CustomDatePicker
 
 @synthesize dayImage = _dayImage;
 @synthesize monthImage = _monthImage;
@@ -144,7 +144,7 @@
         [years addObject:[NSString stringWithFormat:@"%d",i]];
     }
     
-    _yearPicker= [[UICustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width-2*TABLE_RECT_OFFSET, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
+    _yearPicker= [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width-2*TABLE_RECT_OFFSET, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
     _yearPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     //[_yearPicker setDataIndex:_date.y];
     _yearPicker.delegate = self;
@@ -153,7 +153,7 @@
     // change locale if the standard is not what you want
     
     NSArray *monthNames = [df standaloneMonthSymbols];
-    _mounthPicker = [[UICustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width - TABLE_RECT_OFFSET , 0, _monthImage.size.width, _monthImage.size.height)background:_monthImage itemVerticalOffset:0.0f andData:monthNames];
+    _mounthPicker = [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width - TABLE_RECT_OFFSET , 0, _monthImage.size.width, _monthImage.size.height)background:_monthImage itemVerticalOffset:0.0f andData:monthNames];
     _mounthPicker.delegate = self;
     _mounthPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
@@ -173,7 +173,7 @@
         [days addObject:[NSString stringWithFormat:@"%d",i]];
     }
     
-    _dayPicker = [[UICustomPickerView alloc] initWithFrame:CGRectMake(0, 0, _dayImage.size.width, _dayImage.size.height) background:_dayImage itemVerticalOffset:0.0f andData:days];
+    _dayPicker = [[CustomPickerView alloc] initWithFrame:CGRectMake(0, 0, _dayImage.size.width, _dayImage.size.height) background:_dayImage itemVerticalOffset:0.0f andData:days];
     _dayPicker.delegate = self;
     
     _dayPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -261,12 +261,12 @@
 }
 #pragma mark UICustomPickerConrol Delegate
 
-- (void)pickerControllerDidSpin:(UICustomPickerView *)controller;
+- (void)pickerControllerDidSpin:(CustomPickerView *)controller;
 {
 
 }
 
-- (void)pickerController:(UICustomPickerView *)dial didSnapToString:(NSString *)string
+- (void)pickerController:(CustomPickerView *)dial didSnapToString:(NSString *)string
 {
     NSLog(@"index %d",dial.selectedIndex);
     if (_customDatePickerChangeCallback)
