@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8405001817BCE981002FBB27 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405001417BCE981002FBB27 /* CustomDatePicker.m */; };
-		8405001917BCE981002FBB27 /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405001517BCE981002FBB27 /* CustomPickerView.m */; };
 		8405001E17BCE9A6002FBB27 /* year.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001B17BCE9A6002FBB27 /* year.png */; };
 		8405001F17BCE9A6002FBB27 /* month.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001C17BCE9A6002FBB27 /* month.png */; };
 		8405002017BCE9A6002FBB27 /* day.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001D17BCE9A6002FBB27 /* day.png */; };
+		8490896717CB2BC5008288C8 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490896317CB2BC5008288C8 /* CustomDatePicker.m */; };
+		8490896817CB2BC5008288C8 /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490896517CB2BC5008288C8 /* CustomPickerView.m */; };
 		84AAB22D17BB5EB100A3F547 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AAB22C17BB5EB100A3F547 /* UIKit.framework */; };
 		84AAB22F17BB5EB100A3F547 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AAB22E17BB5EB100A3F547 /* Foundation.framework */; };
 		84AAB23117BB5EB100A3F547 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AAB23017BB5EB100A3F547 /* CoreGraphics.framework */; };
@@ -27,13 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8405001417BCE981002FBB27 /* CustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDatePicker.m; path = UICustomDatePicker/CustomDatePicker.m; sourceTree = "<group>"; };
-		8405001517BCE981002FBB27 /* CustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPickerView.m; path = UICustomDatePicker/CustomPickerView.m; sourceTree = "<group>"; };
-		8405001617BCE981002FBB27 /* CustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPickerView.h; path = UICustomDatePicker/CustomPickerView.h; sourceTree = "<group>"; };
-		8405001717BCE981002FBB27 /* CustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDatePicker.h; path = UICustomDatePicker/CustomDatePicker.h; sourceTree = "<group>"; };
 		8405001B17BCE9A6002FBB27 /* year.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = year.png; path = images/year.png; sourceTree = "<group>"; };
 		8405001C17BCE9A6002FBB27 /* month.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = month.png; path = images/month.png; sourceTree = "<group>"; };
 		8405001D17BCE9A6002FBB27 /* day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = day.png; path = images/day.png; sourceTree = "<group>"; };
+		8490896317CB2BC5008288C8 /* CustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDatePicker.m; path = CustomDatePicker/CustomDatePicker.m; sourceTree = "<group>"; };
+		8490896417CB2BC5008288C8 /* CustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPickerView.h; path = CustomDatePicker/CustomPickerView.h; sourceTree = "<group>"; };
+		8490896517CB2BC5008288C8 /* CustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPickerView.m; path = CustomDatePicker/CustomPickerView.m; sourceTree = "<group>"; };
+		8490896617CB2BC5008288C8 /* CustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDatePicker.h; path = CustomDatePicker/CustomDatePicker.h; sourceTree = "<group>"; };
 		84AAB22917BB5EB100A3F547 /* CustomDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AAB22C17BB5EB100A3F547 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84AAB22E17BB5EB100A3F547 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,10 +70,10 @@
 		8405001317BCE966002FBB27 /* CustomDatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				8405001417BCE981002FBB27 /* CustomDatePicker.m */,
-				8405001517BCE981002FBB27 /* CustomPickerView.m */,
-				8405001617BCE981002FBB27 /* CustomPickerView.h */,
-				8405001717BCE981002FBB27 /* CustomDatePicker.h */,
+				8490896317CB2BC5008288C8 /* CustomDatePicker.m */,
+				8490896417CB2BC5008288C8 /* CustomPickerView.h */,
+				8490896517CB2BC5008288C8 /* CustomPickerView.m */,
+				8490896617CB2BC5008288C8 /* CustomDatePicker.h */,
 			);
 			name = CustomDatePicker;
 			sourceTree = "<group>";
@@ -218,8 +218,8 @@
 				84AAB23917BB5EB100A3F547 /* main.m in Sources */,
 				84AAB23D17BB5EB100A3F547 /* AppDelegate.m in Sources */,
 				84AAB24617BB5EB100A3F547 /* ViewController.m in Sources */,
-				8405001817BCE981002FBB27 /* CustomDatePicker.m in Sources */,
-				8405001917BCE981002FBB27 /* CustomPickerView.m in Sources */,
+				8490896717CB2BC5008288C8 /* CustomDatePicker.m in Sources */,
+				8490896817CB2BC5008288C8 /* CustomPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
