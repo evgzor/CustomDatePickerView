@@ -13,7 +13,7 @@ typedef void (^CustomPickerViewControllerDidSpinCallback)(int);
     BOOL isAnimating;
     NSArray* _data4Rows;
     
-    CustomPickerViewControllerDidSpinCallback _customPickerViewControllerDidSpinCallback;
+    CustomPickerViewControllerDidSpinCallback _CustomPickerViewControllerDidSpinCallbackk;
 }
 
 @property (nonatomic,copy) CustomPickerViewControllerDidSpinCallback customPickerViewControllerDidSpinCallback;

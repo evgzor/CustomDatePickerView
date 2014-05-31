@@ -168,7 +168,7 @@
     
     NSMutableArray* days = [NSMutableArray array];
     
-    for (int i= 1; i<range.length; i++)
+    for (int i= 1; i<=range.length; i++)
     {
         [days addObject:[NSString stringWithFormat:@"%d",i]];
     }
