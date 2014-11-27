@@ -3,7 +3,7 @@
 //  CustomDatePickerViewArc
 //
 //  Created by Zorin Evgeny on 14.12.13.
-//  Copyright (c) 2013 Z. All rights reserved.
+//  Copyright (c) 2013 Zorin Evgeny. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

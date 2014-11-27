@@ -3,7 +3,7 @@
 //  Seldon_2
 //
 //  Created by admin on 12.08.13.
-//  Copyright (c) 2013 AETP. All rights reserved.
+//  Copyright (c) 2013 Zorin Evgeny. All rights reserved.
 //
 
 #import "CustomDatePicker.h"

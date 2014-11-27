@@ -1,9 +1,8 @@
 //
 //  UICustomDatePicker.m
-//  Seldon_2
 //
 //  Created by admin on 12.08.13.
-//  Copyright (c) 2013 AETP. All rights reserved.
+//  Copyright (c) Zorin Evgeny. All rights reserved.
 //
 
 #import "CustomDatePicker.h"
