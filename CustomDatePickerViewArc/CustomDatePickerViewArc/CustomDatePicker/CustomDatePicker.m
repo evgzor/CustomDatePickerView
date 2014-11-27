@@ -134,11 +134,6 @@
 
     _minYear = [[_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_minimumDate] year];
     
-    /*[years enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-    {
-        [years addObject:[NSString stringWithFormat:@"%d",idx]];
-        *stop = idx>_minYear;
-    }];*/
     for (int i = _minYear; i<=year; i++)
     {
         [years addObject:[NSString stringWithFormat:@"%d",i]];
@@ -229,15 +224,8 @@
     }];
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
+#pragma mark - memory managment
 
 - (void)dealloc
 {
@@ -251,6 +239,8 @@
     self.monthImage = nil;
     self.calendar = nil;
 }
+
+#pragma mark - callback functions
 
 -(void)customDatePickerHasChangedCallBack:(CustomDatePickerChangeCallback)block
 {
@@ -268,13 +258,12 @@
     NSLog(@"index %d",dial.selectedIndex);
     if (_customDatePickerChangeCallback)
     {
-        NSDate *date = [[NSDate alloc] init];
         
         NSDateComponents *comps = [[NSDateComponents alloc] init];
         [comps setDay:1+_dayPicker.selectedIndex];
         [comps setMonth:1 + _mounthPicker.selectedIndex];
         [comps setYear:_minYear + _yearPicker.selectedIndex];
-        date = [[NSCalendar currentCalendar] dateFromComponents:comps];
+         NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comps];
         
         if (self.customDatePickerChangeCallback)
         {

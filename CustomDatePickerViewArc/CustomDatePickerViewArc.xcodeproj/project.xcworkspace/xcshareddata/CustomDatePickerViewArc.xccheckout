@@ -10,29 +10,29 @@
 	<string>CustomDatePickerViewArc</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>084A8726-4873-4B22-935F-4E727AAEF554</key>
+		<key>486BBBC171872275409F6F46C3C6265B9D5ED6B9</key>
 		<string>https://github.com/evgzor/CustomDatePickerView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CustomDatePickerViewArc/CustomDatePickerViewArc.xcodeproj/project.xcworkspace</string>
+	<string>CustomDatePickerViewArc/CustomDatePickerViewArc.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>084A8726-4873-4B22-935F-4E727AAEF554</key>
+		<key>486BBBC171872275409F6F46C3C6265B9D5ED6B9</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/evgzor/CustomDatePickerView.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>084A8726-4873-4B22-935F-4E727AAEF554</string>
+	<string>486BBBC171872275409F6F46C3C6265B9D5ED6B9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>084A8726-4873-4B22-935F-4E727AAEF554</string>
+			<string>486BBBC171872275409F6F46C3C6265B9D5ED6B9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CustomDatePickerView</string>
 		</dict>

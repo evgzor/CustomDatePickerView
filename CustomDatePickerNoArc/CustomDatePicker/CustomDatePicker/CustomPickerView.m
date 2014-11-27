@@ -4,8 +4,6 @@
 #define ROW_HEIGHT 34
 
 
-static const int kPickerLabelTag = 2012;
-
 @interface CustomPickerView(PrivateMethods)
 - (void)snap;
 -(UIImage *)addText:(UIImage *)img text:(NSString *)text;
@@ -52,11 +50,8 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
         self.tableView.separatorColor = [UIColor clearColor];
         self.tableView.backgroundColor = [UIColor whiteColor];
         
-        //[self addSubview:self.tableView]; // behind base image
-        
         UIImageView *overlayView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
         overlayView.center = CGPointMake(rect.size.width/2, rect.size.height/2);
-        //[self addSubview:overlayView]; //image should be particially transparent
         
         self.tableView.backgroundView = overlayView;// this depends how u would like add background vie
         [self addSubview:self.tableView]; //on base image
@@ -67,6 +62,8 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     return self;
 }
 
+
+
 - (void)dealloc
 {
     self.customPickerViewControllerDidSpinCallback = nil;
@@ -76,13 +73,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     [super dealloc];
 }
 
-
-- (void)setDataIndex:(NSUInteger)index
-{
-    int rowsCount = [self.tableView numberOfRowsInSection:0];
-    _selectedIndex = index < rowsCount && index > 0 ? index : rowsCount;
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
-}
+#pragma mark - UITableViewDelegate protocol methods
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -122,6 +113,8 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     return 0;
 }
 
+#pragma mark - UITableVievDataSourse protocol functions
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _data4Rows.count;
@@ -152,17 +145,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     return cell;
 }
 
--(void)setData4Rows:(NSArray *)data4Rows
-{
-    //if (data4Rows!=_data4Rows)
-   // {
-        [data4Rows retain];
-        [_data4Rows release];
-        _data4Rows = data4Rows;
-        [self.tableView reloadData];
-        [self snap];
-   // }
-}
+
 
 #pragma mark UIScrollViewDelegate methods
 
@@ -211,6 +194,16 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
         [self snap];
 }
 
+#pragma mark private methods
+
+
+- (void)setDataIndex:(NSUInteger)index
+{
+    int rowsCount = [self.tableView numberOfRowsInSection:0];
+    _selectedIndex = index < rowsCount && index > 0 ? index : rowsCount;
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+}
+
 - (void)snap
 {
     if (isAnimating)
@@ -226,11 +219,8 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     {
         UITableViewCell *cell = [[self.tableView visibleCells] objectAtIndex:i];
         
-        //UICustomPickerLabel *label = (UICustomPickerLabel *)[cell viewWithTag:kPickerLabelTag];
-        
         BOOL selected = CGRectContainsPoint(CGRectMake(0, self.tableView.contentOffset.y + verticalPadding,
                                                        self.tableView.frame.size.width, self.tableView.rowHeight),cell.center);
-        //[label setSelected:selected];
         
         if (selected)
         {
@@ -249,31 +239,18 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     }
 }
 
-#pragma mark private methods
+
+-(void)setData4Rows:(NSArray *)data4Rows
+{
+    [data4Rows retain];
+    [_data4Rows release];
+    _data4Rows = data4Rows;
+    [self.tableView reloadData];
+    [self snap];
+}
+
 -(UIImage *)addText:(UIImage *)img text:(NSString *)text
 {
-    /*int w = img.size.width;
-     int h = img.size.height;
-     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-     CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
-     CGContextDrawImage(context, CGRectMake(0, 0, w, h), img.CGImage);
-     
-     char* text= (char *)[text1 cStringUsingEncoding:NSUTF8StringEncoding];
-     
-     CGContextSelectFont(context, "Helvetica",16, kCGEncodingMacRoman);
-     CGContextSetTextDrawingMode(context, kCGTextFill);
-     CGContextSetRGBFillColor(context, 0, 0, 0, 1);
-     CGContextShowTextAtPoint(context,10,10,text, strlen(text));
-     CGImageRef imgCombined = CGBitmapContextCreateImage(context);
-     
-     CGContextRelease(context);
-     CGColorSpaceRelease(colorSpace);
-     
-     UIImage *retImage = [UIImage imageWithCGImage:imgCombined];
-     CGImageRelease(imgCombined);
-     
-     return retImage;*/
-    
     CGPoint point = CGPointMake(10.0f, 3.0f);
     
     UIFont *font = [UIFont boldSystemFontOfSize:18];

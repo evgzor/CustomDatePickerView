@@ -56,7 +56,6 @@
 
 -(void) defaultDataInit
 {
-    //self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 250, 50);
     self.dayImage = [UIImage imageNamed:@"day"];
     self.monthImage = [UIImage imageNamed:@"month"];
     self.yearImage = [UIImage imageNamed:@"year"];
@@ -91,7 +90,7 @@
 }
 -(id)initWithImageForDay:(UIImage*)dayImage andMonthImage:(UIImage*)monthImage andYearImage:(UIImage*)yearImage forRect:(CGRect)rect
 {
-    [self initWithFrame:rect];
+    self = [self initWithFrame:rect];
     
     if (self)
     {
@@ -134,19 +133,13 @@
 
     _minYear = [[_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_minimumDate] year];
     
-    /*[years enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-    {
-        [years addObject:[NSString stringWithFormat:@"%d",idx]];
-        *stop = idx>_minYear;
-    }];*/
     for (int i = _minYear; i<=year; i++)
     {
         [years addObject:[NSString stringWithFormat:@"%d",i]];
     }
     
-    _yearPicker= [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width-2*TABLE_RECT_OFFSET, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
+    _yearPicker= [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width - 2*TABLE_RECT_OFFSET, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
     _yearPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    //[_yearPicker setDataIndex:_date.y];
     _yearPicker.delegate = self;
     
     NSDateFormatter *df = [[NSDateFormatter new] autorelease];
@@ -229,16 +222,9 @@
     }];
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 
+#pragma mark - memory managment
 - (void)dealloc
 {
     [_dayPicker release];
@@ -271,13 +257,12 @@
     NSLog(@"index %d",dial.selectedIndex);
     if (_customDatePickerChangeCallback)
     {
-        NSDate *date = [[NSDate alloc] init];
         
         NSDateComponents *comps = [[[NSDateComponents alloc] init] autorelease];
         [comps setDay:1+_dayPicker.selectedIndex];
         [comps setMonth:1 + _mounthPicker.selectedIndex];
         [comps setYear:_minYear + _yearPicker.selectedIndex];
-        date = [[NSCalendar currentCalendar] dateFromComponents:comps];
+        NSDate* date = [[NSCalendar currentCalendar] dateFromComponents:comps];
         
         if (self.customDatePickerChangeCallback)
         {

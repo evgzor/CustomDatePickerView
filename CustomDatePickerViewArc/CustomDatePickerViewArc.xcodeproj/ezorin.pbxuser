@@ -1,0 +1,91 @@
+// !$*UTF8*$!
+{
+	0DEC0F101A275660007E580A /* CustomDatePickerViewArc */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = CustomDatePickerViewArc;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	0DEC0F261A275674007E580A /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	0DEC0F271A275674007E580A /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F0E516D5185C771C0079EA4B /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 0DEC0F101A275660007E580A /* CustomDatePickerViewArc */;
+		activeTarget = F0E516DC185C771C0079EA4B /* CustomDatePickerViewArc */;
+		codeSenseManager = 0DEC0F271A275674007E580A /* Code sense */;
+		executables = (
+			0DEC0F101A275660007E580A /* CustomDatePickerViewArc */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 438785632;
+			PBXWorkspaceStateSaveDate = 438785632;
+		};
+		sourceControlManager = 0DEC0F261A275674007E580A /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	F0E516DC185C771C0079EA4B /* CustomDatePickerViewArc */ = {
+		activeExec = 0;
+		executables = (
+			0DEC0F101A275660007E580A /* CustomDatePickerViewArc */,
+		);
+	};
+	F0E516F7185C771D0079EA4B /* CustomDatePickerViewArcTests */ = {
+		activeExec = 0;
+	};
+}
