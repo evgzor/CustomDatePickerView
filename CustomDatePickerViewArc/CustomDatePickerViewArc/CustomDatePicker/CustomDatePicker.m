@@ -21,9 +21,6 @@
     
     NSInteger _minYear;
     
-    UIImage* _dayImage;
-    UIImage* _monthImage;
-    UIImage* _yearImage;
 }
 
 @property(strong,retain)UIImage* dayImage;
@@ -54,31 +51,6 @@
 
 }
 
--(void) defaultDataInit
-{
-    //self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 250, 50);
-    self.dayImage = [UIImage imageNamed:@"day"];
-    self.monthImage = [UIImage imageNamed:@"month"];
-    self.yearImage = [UIImage imageNamed:@"year"];
-    
-    _dayPicker = nil;
-    _yearPicker = nil;
-    _mounthPicker = nil;
-    
-    _year = MIN_YEAR_VALUE;
-    
-    _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    self.date = [NSDate date];
-    _minYear = MIN_YEAR_VALUE;
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:1];
-    [comps setMonth:1];
-    [comps setYear:MIN_YEAR_VALUE];
-    
-    self.minimumDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
-    self.maximumDate = [NSDate date];
-
-}
 
 -(id)init
 {
@@ -95,9 +67,9 @@
     
     if (self)
     {
-        self.dayImage = dayImage;
-        self.monthImage = monthImage;
-        self.yearImage = yearImage;
+        _dayImage = dayImage;
+        _monthImage = monthImage;
+        _yearImage = yearImage;
     }
     
     return self;
@@ -111,6 +83,33 @@
         
     }
     return self;
+}
+
+-(void) defaultDataInit
+{
+    //self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 250, 50);
+    _dayImage = [UIImage imageNamed:@"day"];
+    _monthImage = [UIImage imageNamed:@"month"];
+    _yearImage = [UIImage imageNamed:@"year"];
+    
+    _dayPicker = nil;
+    _yearPicker = nil;
+    _mounthPicker = nil;
+    
+    _year = MIN_YEAR_VALUE;
+    
+    _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    _date = [NSDate date];
+    _minYear = MIN_YEAR_VALUE;
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:1];
+    [comps setMonth:1];
+    [comps setYear:MIN_YEAR_VALUE];
+    
+    _minimumDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    _maximumDate = [NSDate date];
+    
 }
 
 
@@ -234,6 +233,7 @@
     _yearPicker = nil;
     _monthImage = nil;
     _monthImage = nil;
+    
     self.dayImage = nil;
     self.yearImage = nil;
     self.monthImage = nil;

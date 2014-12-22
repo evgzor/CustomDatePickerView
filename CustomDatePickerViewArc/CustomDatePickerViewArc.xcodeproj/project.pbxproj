@@ -55,7 +55,7 @@
 		F0E516EF185C771D0079EA4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0E516F0185C771D0079EA4B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F0E516F2185C771D0079EA4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
-		F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomDatePickerViewArcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CustomDatePickerViewArcTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E516F9185C771D0079EA4B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F0E51701185C771D0079EA4B /* CustomDatePickerViewArcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomDatePickerViewArcTests-Info.plist"; sourceTree = "<group>"; };
 		F0E51703185C771D0079EA4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				F0E516DD185C771C0079EA4B /* CustomDatePickerViewArc.app */,
-				F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests.xctest */,
+				F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			);
 			name = CustomDatePickerViewArcTests;
 			productName = CustomDatePickerViewArcTests;
-			productReference = F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests.xctest */;
+			productReference = F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

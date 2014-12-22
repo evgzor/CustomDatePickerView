@@ -55,9 +55,9 @@
 
 -(void) defaultDataInit
 {
-    self.dayImage = [UIImage imageNamed:@"day"];
-    self.monthImage = [UIImage imageNamed:@"month"];
-    self.yearImage = [UIImage imageNamed:@"year"];
+    _dayImage = [[UIImage imageNamed:@"day"] retain];
+    _monthImage = [[UIImage imageNamed:@"month"] retain];
+    _yearImage = [[UIImage imageNamed:@"year"] retain];
     
     _dayPicker = nil;
     _yearPicker = nil;
@@ -65,16 +65,16 @@
     
     _year = MIN_YEAR_VALUE;
     
-    _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    self.date = [NSDate date];
+    _calendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] retain];
+    _date = [[NSDate date] retain];
     _minYear = MIN_YEAR_VALUE;
     NSDateComponents *comps = [[[NSDateComponents alloc] init] autorelease];
     [comps setDay:1];
     [comps setMonth:1];
     [comps setYear:MIN_YEAR_VALUE];
     
-    self.minimumDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
-    self.maximumDate = [NSDate date];
+    _minimumDate = [[[NSCalendar currentCalendar] dateFromComponents:comps] retain];
+    _maximumDate = [[NSDate date] retain];
 
 }
 
@@ -93,9 +93,9 @@
     
     if (self)
     {
-        self.dayImage = dayImage;
-        self.monthImage = monthImage;
-        self.yearImage = yearImage;
+        _dayImage = [dayImage retain];
+        _monthImage = [monthImage retain];
+        _yearImage = [yearImage retain];
     }
     
     return self;
