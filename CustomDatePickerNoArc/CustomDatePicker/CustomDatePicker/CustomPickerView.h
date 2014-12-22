@@ -28,7 +28,7 @@ typedef void (^CustomPickerViewControllerDidSpinCallback)(int);
 @property(nonatomic,assign) NSInteger selectedIndex;
 @property(nonatomic,assign) NSInteger verticalLabelOffset;
 @property(nonatomic,assign) NSInteger labelFontSize;
-@property(nonatomic,retain) NSArray* data4Rows;
+@property(nonatomic,copy) NSArray* data4Rows;
 
 -(void)setData4Rows:(NSArray *)data4Rows;
 

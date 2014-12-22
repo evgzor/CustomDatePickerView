@@ -31,32 +31,32 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     rect.origin.y = frame.origin.y;
     rect.size.width = backImage.size.width;
     rect.size.height = backImage.size.height;
-    self.data4Rows = data;
+    _data4Rows = data;
     
     self = [[super initWithFrame:rect] autorelease];
     
     if (self)
     {
-        self.verticalLabelOffset = offset;
-        self.isSpinning = NO;
+        _verticalLabelOffset = offset;
+        _isSpinning = NO;
         isAnimating = NO;
         
-        self.tableView = [[[UITableView alloc] initWithFrame:CGRectMake(3, 3, rect.size.width-TABLE_RECT_OFFSET, rect.size.height-TABLE_RECT_OFFSET) style:UITableViewStylePlain] autorelease];
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-        self.tableView.rowHeight = ROW_HEIGHT;
-        self.tableView.showsVerticalScrollIndicator = NO;
-        self.tableView.showsHorizontalScrollIndicator = NO;
-        self.tableView.separatorColor = [UIColor clearColor];
-        self.tableView.backgroundColor = [UIColor whiteColor];
+        tableView = [[[UITableView alloc] initWithFrame:CGRectMake(3, 3, rect.size.width-TABLE_RECT_OFFSET, rect.size.height-TABLE_RECT_OFFSET) style:UITableViewStylePlain] autorelease];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.rowHeight = ROW_HEIGHT;
+        tableView.showsVerticalScrollIndicator = NO;
+        tableView.showsHorizontalScrollIndicator = NO;
+        tableView.separatorColor = [UIColor clearColor];
+        tableView.backgroundColor = [UIColor whiteColor];
         
         UIImageView *overlayView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
         overlayView.center = CGPointMake(rect.size.width/2, rect.size.height/2);
         
-        self.tableView.backgroundView = overlayView;// this depends how u would like add background vie
+        tableView.backgroundView = overlayView;// this depends how u would like add background vie
         [self addSubview:self.tableView]; //on base image
         
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
         [self snap];
     }
     return self;
@@ -66,10 +66,17 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (void)dealloc
 {
-    self.customPickerViewControllerDidSpinCallback = nil;
-    self.tableView = nil;
-    self.data4Rows = nil;
-    self.strings = nil;
+    [_customPickerViewControllerDidSpinCallback release];
+    _customPickerViewControllerDidSpinCallback = nil;
+    [tableView release];
+    tableView = nil;
+    [_data4Rows release];
+    _data4Rows = nil;
+    [strings release];
+    strings = nil;
+    tableView.delegate = nil;
+    tableView.dataSource = nil;
+    
     [super dealloc];
 }
 

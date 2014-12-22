@@ -232,10 +232,14 @@
     _yearPicker = nil;
     [_monthImage release];
     _monthImage = nil;
-    self.dayImage = nil;
-    self.yearImage = nil;
-    self.monthImage = nil;
-    self.calendar = nil;
+    [_dayImage release];
+    _dayImage = nil;
+    [_yearImage release];
+    _yearImage = nil;
+    [_monthImage release];
+    _monthImage = nil;
+    [_calendar release];
+    _calendar = nil;
     
     [super dealloc];
 }
