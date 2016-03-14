@@ -31,7 +31,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     rect.origin.y = frame.origin.y;
     rect.size.width = backImage.size.width;
     rect.size.height = backImage.size.height;
-    _data4Rows = data;
+    _data4Rows = [data retain];
     
     self = [[super initWithFrame:rect] autorelease];
     
@@ -129,7 +129,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* cellName = [NSString stringWithFormat:@"%d",indexPath.row];
+    NSString* cellName = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     UITableViewCell *cell = (UITableViewCell *)[aTableView dequeueReusableCellWithIdentifier:cellName];
     
     if (cell == nil)
