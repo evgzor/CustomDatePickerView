@@ -17,9 +17,9 @@
     CustomPickerView* _yearPicker;
     CustomPickerView* _mounthPicker;
     
-    NSInteger _year;
+    NSUInteger _year;
     
-    NSInteger _minYear;
+    NSUInteger _minYear;
     
 }
 
@@ -127,15 +127,15 @@
     
     NSDateComponents *components = [_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_maximumDate];
     
-    NSInteger year = [components year];
+    NSInteger year = _year = [components year];
     
     NSMutableArray* years = [NSMutableArray array];
 
     _minYear = [[_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_minimumDate] year];
     
-    for (int i = _minYear; i<=year; i++)
+    for (NSUInteger i = _minYear; i<=year; i++)
     {
-        [years addObject:[NSString stringWithFormat:@"%d",i]];
+        [years addObject:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
     }
     
     _yearPicker= [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width-2*TABLE_RECT_OFFSET, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
@@ -158,7 +158,7 @@
     NSRange range = [cal rangeOfUnit:NSDayCalendarUnit
                               inUnit:NSMonthCalendarUnit
                              forDate:[cal dateFromComponents:comps]];
-    NSLog(@"%d", range.length);
+    NSLog(@"%lu", (unsigned long)range.length);
     
     NSMutableArray* days = [NSMutableArray array];
     
@@ -195,16 +195,16 @@
     [_yearPicker retrieveCustomPickerViewControllerDidSpinCallback:^(int year)
     {
         _year = _minYear - 1 + year;
-        NSLog(@"Year %d",_year);
+        NSLog(@"Year %ld",(long)_year);
     }];
     
     [_mounthPicker retrieveCustomPickerViewControllerDidSpinCallback:^(int month)
     {
         NSCalendar* cal = [NSCalendar currentCalendar];
         
-         NSDateComponents* comps = [[NSDateComponents alloc] init];
+         NSDateComponents* comps = components;
         [comps setMonth:month];
-        [components setYear:_year];
+        [comps setYear:_year];
         
         NSRange range = [cal rangeOfUnit:NSDayCalendarUnit
                                   inUnit:NSMonthCalendarUnit
