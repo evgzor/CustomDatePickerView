@@ -206,7 +206,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (void)setDataIndex:(NSUInteger)index
 {
-    int rowsCount = [self.tableView numberOfRowsInSection:0];
+    NSInteger rowsCount = [self.tableView numberOfRowsInSection:0];
     _selectedIndex = index < rowsCount && index > 0 ? index : rowsCount;
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 }

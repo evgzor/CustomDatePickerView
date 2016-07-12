@@ -3,7 +3,7 @@
 
 #define TABLE_RECT_OFFSET 6
 
-typedef void (^CustomPickerViewControllerDidSpinCallback)(int);
+typedef void (^CustomPickerViewControllerDidSpinCallback)(NSInteger);
 
 @protocol CustomPickerControllerDelegate;
 

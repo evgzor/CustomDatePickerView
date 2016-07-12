@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0A049E51D34D4B70083B0CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A049E41D34D4B70083B0CD /* LaunchScreen.storyboard */; };
 		F0E516E1185C771D0079EA4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E516E0185C771C0079EA4B /* Foundation.framework */; };
 		F0E516E3185C771D0079EA4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E516E2185C771D0079EA4B /* CoreGraphics.framework */; };
 		F0E516E5185C771D0079EA4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E516E4185C771D0079EA4B /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0A049E41D34D4B70083B0CD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0E516DD185C771C0079EA4B /* CustomDatePickerViewArc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomDatePickerViewArc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E516E0185C771C0079EA4B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0E516E2185C771D0079EA4B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +57,7 @@
 		F0E516EF185C771D0079EA4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0E516F0185C771D0079EA4B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F0E516F2185C771D0079EA4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
-		F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CustomDatePickerViewArcTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomDatePickerViewArcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E516F9185C771D0079EA4B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F0E51701185C771D0079EA4B /* CustomDatePickerViewArcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomDatePickerViewArcTests-Info.plist"; sourceTree = "<group>"; };
 		F0E51703185C771D0079EA4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -115,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F0E516DD185C771C0079EA4B /* CustomDatePickerViewArc.app */,
-				F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests */,
+				F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +138,7 @@
 			children = (
 				F0E517AB185C7A440079EA4B /* ViewController_iPad.xib */,
 				F0E517AD185C7A440079EA4B /* ViewController_iPhone.xib */,
+				F0A049E41D34D4B70083B0CD /* LaunchScreen.storyboard */,
 				F0E517A8185C791E0079EA4B /* ViewController.h */,
 				F0E517A9185C791E0079EA4B /* ViewController.m */,
 				F0E5170F185C77970079EA4B /* CustomDatePickerViewArc */,
@@ -237,7 +240,7 @@
 			);
 			name = CustomDatePickerViewArcTests;
 			productName = CustomDatePickerViewArcTests;
-			productReference = F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests */;
+			productReference = F0E516F8185C771D0079EA4B /* CustomDatePickerViewArcTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -246,7 +249,7 @@
 		F0E516D5185C771C0079EA4B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Z;
 				TargetAttributes = {
 					F0E516F7185C771D0079EA4B = {
@@ -286,6 +289,7 @@
 				F0E516F3185C771D0079EA4B /* Images.xcassets in Resources */,
 				F0E517B0185C7A440079EA4B /* ViewController_iPhone.xib in Resources */,
 				F0E517B7185C871B0079EA4B /* Default.png in Resources */,
+				F0A049E51D34D4B70083B0CD /* LaunchScreen.storyboard in Resources */,
 				F0E517B5185C871B0079EA4B /* CustomDatePicker-Info.plist in Resources */,
 				F0E517B6185C871B0079EA4B /* Default-568h@2x.png in Resources */,
 			);
@@ -386,6 +390,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -448,6 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePickerViewArc/CustomDatePickerViewArc-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePickerViewArc/CustomDatePickerViewArc-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Z.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -461,6 +467,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePickerViewArc/CustomDatePickerViewArc-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePickerViewArc/CustomDatePickerViewArc-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Z.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,6 +489,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CustomDatePickerViewArcTests/CustomDatePickerViewArcTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Z.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -500,6 +508,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePickerViewArc/CustomDatePickerViewArc-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePickerViewArcTests/CustomDatePickerViewArcTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Z.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

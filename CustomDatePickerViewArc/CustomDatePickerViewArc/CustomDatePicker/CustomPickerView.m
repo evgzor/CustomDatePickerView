@@ -124,7 +124,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* cellName = [NSString stringWithFormat:@"%d",indexPath.row];
+    NSString* cellName = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     UITableViewCell *cell = (UITableViewCell *)[aTableView dequeueReusableCellWithIdentifier:cellName];
     
     if (cell == nil)
@@ -188,7 +188,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
         [self.delegate pickerController:self didSnapToString:self.selectedString];
         if (self.customPickerViewControllerDidSpinCallback)
         {
-            self.customPickerViewControllerDidSpinCallback(self.selectedIndex + 1);
+            self.customPickerViewControllerDidSpinCallback((NSInteger)(self.selectedIndex + 1));
         }
 
     }
@@ -200,7 +200,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (void)setDataIndex:(NSUInteger)index
 {
-    int rowsCount = [self.tableView numberOfRowsInSection:0];
+    NSInteger rowsCount = (NSInteger)[self.tableView numberOfRowsInSection:0];
     _selectedIndex = index < rowsCount && index > 0 ? index : rowsCount;
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 }
@@ -265,7 +265,27 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     }
     else
     {
-        [text drawInRect:CGRectIntegral(rect) withFont:font];
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        /// Set line break mode
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        /// Set text alignment
+        paragraphStyle.alignment = NSTextAlignmentRight;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] <= 7.0)
+        {
+            [text drawInRect:CGRectIntegral(rect) withFont:font];
+        }
+        else
+        {
+            [text drawInRect:rect withAttributes:attributes];
+        }
+        
+        
+       
     }
     
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

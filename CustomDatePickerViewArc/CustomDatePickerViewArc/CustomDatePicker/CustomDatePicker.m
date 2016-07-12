@@ -172,9 +172,9 @@
     
     _dayPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
-    [_dayPicker retrieveCustomPickerViewControllerDidSpinCallback:^(int day)
+    [_dayPicker retrieveCustomPickerViewControllerDidSpinCallback:^(NSInteger day)
     {
-        NSLog(@"Day %d",day);
+        NSLog(@"Day %ld",(long)day);
     }];
     
     
@@ -192,13 +192,13 @@
     [self addSubview:_mounthPicker];
     [self addSubview:_yearPicker];
     
-    [_yearPicker retrieveCustomPickerViewControllerDidSpinCallback:^(int year)
+    [_yearPicker retrieveCustomPickerViewControllerDidSpinCallback:^(NSInteger year)
     {
         _year = _minYear - 1 + year;
         NSLog(@"Year %ld",(long)_year);
     }];
     
-    [_mounthPicker retrieveCustomPickerViewControllerDidSpinCallback:^(int month)
+    [_mounthPicker retrieveCustomPickerViewControllerDidSpinCallback:^(NSInteger month)
     {
         NSCalendar* cal = [NSCalendar currentCalendar];
         
@@ -218,7 +218,7 @@
         }
         _dayPicker.data4Rows = days;
         
-        NSLog(@"Month %d",month);
+        NSLog(@"Month %ld",(long)month);
         
     }];
     
@@ -255,7 +255,7 @@
 
 - (void)pickerController:(CustomPickerView *)dial didSnapToString:(NSString *)string
 {
-    NSLog(@"index %d",dial.selectedIndex);
+    NSLog(@"index %ld",(long)dial.selectedIndex);
     if (_customDatePickerChangeCallback)
     {
         
