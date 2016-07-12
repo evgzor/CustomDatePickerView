@@ -14,23 +14,7 @@ typedef void (^CustomDatePickerChangeCallback)(NSDate*);
 
 
 @interface CustomDatePicker : UIView
-{
-    
-    NSCalendar *_calendar;
-    NSDate *_date;
-    NSDate *_maximumDate;
-    NSDate *_minimumDate;
-    NSTimeZone *_timeZone;
-    
-    CustomDatePickerChangeCallback _customDatePickerChangeCallback;
-    
-}
 
-@property(nonatomic, copy)   NSCalendar *calendar;
-@property(nonatomic, strong) NSDate *date;
-@property(nonatomic, strong) NSDate *maximumDate;
-@property(nonatomic, strong) NSDate *minimumDate;
-@property(nonatomic, strong) NSTimeZone *timeZone;
 
 @property(nonatomic) id<CustomDatePickerDelegate> delegate;
 

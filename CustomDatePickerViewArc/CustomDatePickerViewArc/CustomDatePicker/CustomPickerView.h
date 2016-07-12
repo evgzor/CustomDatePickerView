@@ -1,35 +1,21 @@
 
 //#import "BKGlobals.h"
 
-#define TABLE_RECT_OFFSET 6
+static const NSInteger kTableRectOfset =  6;
 
 typedef void (^CustomPickerViewControllerDidSpinCallback)(NSInteger);
 
 @protocol CustomPickerControllerDelegate;
 
 @interface CustomPickerView : UIView <UITableViewDelegate, UITableViewDataSource>
-{
-    BOOL isSpinning;
-    BOOL isAnimating;
-    NSArray* _data4Rows;
-    
-    CustomPickerViewControllerDidSpinCallback _CustomPickerViewControllerDidSpinCallbackk;
-}
 
+@property(nonatomic,assign) id<CustomPickerControllerDelegate> delegate;
 @property (nonatomic,copy) CustomPickerViewControllerDidSpinCallback customPickerViewControllerDidSpinCallback;
+@property(nonatomic, readonly) NSInteger selectedIndex;
+@property(nonatomic,readonly) BOOL isSpinning;
 
 -(void)retrieveCustomPickerViewControllerDidSpinCallback:(CustomPickerViewControllerDidSpinCallback)callback;
 
-@property(nonatomic,retain) UITableView *tableView;
-@property(nonatomic,retain) NSMutableArray *strings;
-@property(nonatomic,assign) id<CustomPickerControllerDelegate> delegate;
-@property(nonatomic,assign) BOOL isSpinning;
-@property(nonatomic,readonly) NSString *selectedString;
-@property(nonatomic,assign) NSInteger selectedIndex;
-@property(nonatomic,assign) NSInteger verticalLabelOffset;
-@property(nonatomic,assign) NSInteger labelFontSize;
-@property(nonatomic,retain) NSArray* data4Rows;
-@property(nonatomic,retain) UIImageView* backgroundImgView;
 
 -(void)setData4Rows:(NSArray *)data4Rows;
 
