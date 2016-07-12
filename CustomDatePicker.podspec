@@ -65,10 +65,6 @@ Pod::Spec.new do |s|
   # s.platform     = :ios
   # s.platform     = :ios, "6.1"
 
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -87,7 +83,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CustomDatePicker", "CustomDatePicker.{h,m}","CustomPickerView.{h,m}"
+  s.source_files  =  "CustomDatePickerViewArc/CustomDatePickerViewArc/CustomDatePicker/CustomDatePicker.{h,m}","CustomDatePickerViewArc/CustomDatePickerViewArc/CustomDatePicker/CustomPickerView.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "CustomDatePicker.h"
