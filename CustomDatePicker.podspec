@@ -86,7 +86,7 @@ Pod::Spec.new do |s|
   s.source_files  =  "CustomDatePickerViewArc/CustomDatePickerViewArc/CustomDatePicker/CustomDatePicker.{h,m}","CustomDatePickerViewArc/CustomDatePickerViewArc/CustomDatePicker/CustomPickerView.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "CustomDatePicker.h"
+  s.public_header_files = "CustomDatePickerViewArc/CustomDatePickerViewArc/CustomDatePicker/CustomDatePicker.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
