@@ -11,8 +11,35 @@ Show what the library does as concisely as possible, developers should be able t
 A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
 
 ## Installation
+AFNetworking supports multiple methods for installing the library in a project.
 
-Provide code examples and explanations of how to get the project.
+## Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like AFNetworking in your projects. See the ["Getting Started" guide for more information](https://github.com/AFNetworking/AFNetworking/wiki/Getting-Started-with-AFNetworking). You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+#### Podfile
+
+To integrateCustomDatePickerView into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
+pod 'CustomDatePickerView', '~> 0.0.1'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
 
 ## API Reference
 
@@ -28,4 +55,4 @@ Let people know how they can dive into the project, include important links to t
 
 ## License
 
-A short snippet describing the license (MIT, Apache, etc.)
+CustomDatePickerView is released under the MIT license. See LICENSE for details
