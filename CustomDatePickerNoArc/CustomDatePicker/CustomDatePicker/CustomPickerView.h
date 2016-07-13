@@ -8,27 +8,20 @@ typedef void (^CustomPickerViewControllerDidSpinCallback)(NSInteger);
 @protocol CustomPickerControllerDelegate;
 
 @interface CustomPickerView : UIView <UITableViewDelegate, UITableViewDataSource>
-{
-    BOOL isSpinning;
-    BOOL isAnimating;
-    NSArray* _data4Rows;
-    
-    CustomPickerViewControllerDidSpinCallback _customPickerViewControllerDidSpinCallback;
-}
 
+@property(nonatomic,assign) id<CustomPickerControllerDelegate> delegate;
+@property(nonatomic,assign, readonly) BOOL isSpinning;
+@property(nonatomic, readonly) BOOL isAnimating;
+@property(nonatomic, readonly) NSString *selectedString;
+@property(nonatomic, readonly) NSInteger selectedIndex;
 @property (nonatomic,copy) CustomPickerViewControllerDidSpinCallback customPickerViewControllerDidSpinCallback;
+@property(nonatomic, retain) NSMutableArray *strings;
+@property(nonatomic, assign) NSInteger verticalLabelOffset;
+@property(nonatomic, assign) NSInteger labelFontSize;
 
 -(void)retrieveCustomPickerViewControllerDidSpinCallback:(CustomPickerViewControllerDidSpinCallback)callback;
 
-@property(nonatomic,retain) UITableView *tableView;
-@property(nonatomic,retain) NSMutableArray *strings;
-@property(nonatomic,assign) id<CustomPickerControllerDelegate> delegate;
-@property(nonatomic,assign) BOOL isSpinning;
-@property(nonatomic,readonly) NSString *selectedString;
-@property(nonatomic,assign) NSInteger selectedIndex;
-@property(nonatomic,assign) NSInteger verticalLabelOffset;
-@property(nonatomic,assign) NSInteger labelFontSize;
-@property(nonatomic,copy) NSArray* data4Rows;
+
 
 -(void)setData4Rows:(NSArray *)data4Rows;
 

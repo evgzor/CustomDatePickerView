@@ -23,7 +23,22 @@
     UIImage* _dayImage;
     UIImage* _monthImage;
     UIImage* _yearImage;
+    
+    NSCalendar *_calendar;
+    NSDate *_date;
+    NSDate *_maximumDate;
+    NSDate *_minimumDate;
+    NSTimeZone *_timeZone;
+    
+    CustomDatePickerChangeCallback _customDatePickerChangeCallback;
+
 }
+
+@property(nonatomic, copy)   NSCalendar *calendar;
+@property(nonatomic, retain) NSDate *date;
+@property(nonatomic, retain) NSDate *maximumDate;
+@property(nonatomic, retain) NSDate *minimumDate;
+@property(nonatomic, retain) NSTimeZone *timeZone;
 
 @property(nonatomic,retain)UIImage* dayImage;
 @property(nonatomic,retain)UIImage* monthImage;

@@ -9,7 +9,7 @@
 #import "CustomDatePicker.h"
 #import "CustomPickerView.h"
 
-#define MIN_YEAR_VALUE 1900 
+static const NSInteger kMinYearValue = 1900;
 
 @interface  CustomDatePicker() <CustomPickerControllerDelegate>
 {
@@ -20,12 +20,25 @@
     NSUInteger _year;
     
     NSUInteger _minYear;
-    
+        
+    NSCalendar *_calendar;
+    NSDate *_date;
+    NSDate *_maximumDate;
+    NSDate *_minimumDate;
+    NSTimeZone *_timeZone;
+        
+    CustomDatePickerChangeCallback _customDatePickerChangeCallback;
 }
 
-@property(strong,retain)UIImage* dayImage;
-@property(strong,retain)UIImage* monthImage;
-@property(strong,retain)UIImage* yearImage;
+@property(strong, strong)    UIImage* dayImage;
+@property(strong, strong)    UIImage* monthImage;
+@property(strong, strong)    UIImage* yearImage;
+
+@property(nonatomic, copy)   NSCalendar *calendar;
+@property(nonatomic, strong) NSDate *date;
+@property(nonatomic, strong) NSDate *maximumDate;
+@property(nonatomic, strong) NSDate *minimumDate;
+@property(nonatomic, strong) NSTimeZone *timeZone;
 
 -(void) defaultDataInit;
  
@@ -96,16 +109,16 @@
     _yearPicker = nil;
     _mounthPicker = nil;
     
-    _year = MIN_YEAR_VALUE;
+    _year = kMinYearValue;
     
     _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     _date = [NSDate date];
-    _minYear = MIN_YEAR_VALUE;
+    _minYear = kMinYearValue;
     
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:1];
     [comps setMonth:1];
-    [comps setYear:MIN_YEAR_VALUE];
+    [comps setYear: kMinYearValue];
     
     _minimumDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
     _maximumDate = [NSDate date];
@@ -118,7 +131,7 @@
 {
     [super layoutSubviews];
     
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _dayImage.size.width + _monthImage.size.width + _yearImage.size.width - 2*TABLE_RECT_OFFSET, _dayImage.size.height);
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _dayImage.size.width + _monthImage.size.width + _yearImage.size.width - 2 * kTableRectOfset, _dayImage.size.height);
     
     if (_maximumDate < _date)
     {
@@ -138,7 +151,7 @@
         [years addObject:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
     }
     
-    _yearPicker= [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width-2*TABLE_RECT_OFFSET, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
+    _yearPicker= [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width + _monthImage.size.width-2 * kTableRectOfset, 0, _yearImage.size.width, _yearImage.size.height) background:_yearImage itemVerticalOffset:0.0f andData:years];
     _yearPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     //[_yearPicker setDataIndex:_date.y];
     _yearPicker.delegate = self;
@@ -147,7 +160,7 @@
     // change locale if the standard is not what you want
     
     NSArray *monthNames = [df standaloneMonthSymbols];
-    _mounthPicker = [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width - TABLE_RECT_OFFSET , 0, _monthImage.size.width, _monthImage.size.height)background:_monthImage itemVerticalOffset:0.0f andData:monthNames];
+    _mounthPicker = [[CustomPickerView alloc] initWithFrame:CGRectMake(_dayImage.size.width - kTableRectOfset , 0, _monthImage.size.width, _monthImage.size.height)background:_monthImage itemVerticalOffset:0.0f andData:monthNames];
     _mounthPicker.delegate = self;
     _mounthPicker.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
@@ -234,10 +247,10 @@
     _monthImage = nil;
     _monthImage = nil;
     
-    self.dayImage = nil;
-    self.yearImage = nil;
-    self.monthImage = nil;
-    self.calendar = nil;
+    _dayImage = nil;
+    _yearImage = nil;
+    _monthImage = nil;
+    _calendar = nil;
 }
 
 #pragma mark - callback functions

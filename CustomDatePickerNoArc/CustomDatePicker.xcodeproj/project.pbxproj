@@ -74,10 +74,10 @@
 		8405001317BCE966002FBB27 /* CustomDatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				8490896317CB2BC5008288C8 /* CustomDatePicker.m */,
 				8490896417CB2BC5008288C8 /* CustomPickerView.h */,
 				8490896517CB2BC5008288C8 /* CustomPickerView.m */,
 				8490896617CB2BC5008288C8 /* CustomDatePicker.h */,
+				8490896317CB2BC5008288C8 /* CustomDatePicker.m */,
 			);
 			name = CustomDatePicker;
 			sourceTree = "<group>";

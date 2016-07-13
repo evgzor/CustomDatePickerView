@@ -4,7 +4,11 @@
 #define ROW_HEIGHT 34
 
 
-@interface CustomPickerView(PrivateMethods)
+@interface CustomPickerView()
+
+@property(nonatomic,retain) UITableView *tableView;
+@property(nonatomic,copy) NSArray* data4Rows;
+
 - (void)snap;
 -(UIImage *)addText:(UIImage *)img text:(NSString *)text;
 - (UIImage *)imageWithColor:(UIColor *)color forRect:(CGRect) rect;
@@ -12,14 +16,6 @@
 @end
 
 @implementation CustomPickerView
-
-@synthesize tableView, strings, delegate;
-@synthesize isSpinning = _isSpinning;
-@synthesize selectedString = _selectedString;
-@synthesize selectedIndex = _selectedIndex;
-@synthesize verticalLabelOffset = _verticalLabelOffset;
-@synthesize labelFontSize = _labelFontSize;
-@synthesize data4Rows = _data4Rows;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -39,24 +35,24 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
     {
         _verticalLabelOffset = offset;
         _isSpinning = NO;
-        isAnimating = NO;
+        _isAnimating = NO;
         
-        tableView = [[[UITableView alloc] initWithFrame:CGRectMake(3, 3, rect.size.width-TABLE_RECT_OFFSET, rect.size.height-TABLE_RECT_OFFSET) style:UITableViewStylePlain] autorelease];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.rowHeight = ROW_HEIGHT;
-        tableView.showsVerticalScrollIndicator = NO;
-        tableView.showsHorizontalScrollIndicator = NO;
-        tableView.separatorColor = [UIColor clearColor];
-        tableView.backgroundColor = [UIColor whiteColor];
+        _tableView = [[[UITableView alloc] initWithFrame:CGRectMake(3, 3, rect.size.width-TABLE_RECT_OFFSET, rect.size.height-TABLE_RECT_OFFSET) style:UITableViewStylePlain] autorelease];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.rowHeight = ROW_HEIGHT;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.showsHorizontalScrollIndicator = NO;
+        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
         
         UIImageView *overlayView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
         overlayView.center = CGPointMake(rect.size.width/2, rect.size.height/2);
         
-        tableView.backgroundView = overlayView;// this depends how u would like add background vie
+        _tableView.backgroundView = overlayView;// this depends how u would like add background vie
         [self addSubview:self.tableView]; //on base image
         
-        [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        [_tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
         [self snap];
     }
     return self;
@@ -68,14 +64,14 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 {
     [_customPickerViewControllerDidSpinCallback release];
     _customPickerViewControllerDidSpinCallback = nil;
-    [tableView release];
-    tableView = nil;
+    [_tableView release];
+    _tableView = nil;
     [_data4Rows release];
     _data4Rows = nil;
-    [strings release];
-    strings = nil;
-    tableView.delegate = nil;
-    tableView.dataSource = nil;
+    [_strings release];
+    _strings = nil;
+    _tableView.delegate = nil;
+    _tableView.dataSource = nil;
     
     [super dealloc];
 }
@@ -163,7 +159,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.isSpinning = YES;
+    _isSpinning = YES;
     [self.delegate pickerControllerDidSpin:self];
 }
 
@@ -171,25 +167,25 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 {
     if (!decelerate)
     {
-        self.isSpinning = NO;
-        isAnimating = NO;
+        _isSpinning = NO;
+        _isAnimating = NO;
         [self snap];
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    self.isSpinning = NO;
-    isAnimating = NO;
+    _isSpinning = NO;
+    _isAnimating = NO;
     [self snap];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    if (isAnimating)
+    if (_isAnimating)
     {
-        isAnimating = NO;
-        self.isSpinning = NO;
+        _isAnimating = NO;
+        _isSpinning = NO;
         [self.delegate pickerController:self didSnapToString:self.selectedString];
         if (self.customPickerViewControllerDidSpinCallback)
         {
@@ -213,12 +209,12 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
 
 - (void)snap
 {
-    if (isAnimating)
+    if (_isAnimating)
         return;
     
-    isAnimating = YES;
+    _isAnimating = YES;
     
-    self.isSpinning = NO;
+    _isSpinning = NO;
     
     double verticalPadding = (self.tableView.frame.size.height - self.tableView.rowHeight) * .5;
     
@@ -231,8 +227,8 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
         
         if (selected)
         {
-            isAnimating = YES;
-            self.isSpinning = NO;
+            _isAnimating = YES;
+            _isSpinning = NO;
             
             [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
             _selectedIndex = [self.tableView indexPathForCell:cell].row;
@@ -240,7 +236,7 @@ itemVerticalOffset:(CGFloat)offset andData:(NSArray*) data
             {
                 _selectedIndex = [self.tableView indexPathForCell:cell].row;
                 [self.delegate pickerController:self didSnapToString:self.selectedString];
-                isAnimating = NO;
+                _isAnimating = NO;
             }
         }
     }
