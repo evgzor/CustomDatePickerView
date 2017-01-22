@@ -241,21 +241,29 @@
 #pragma mark - memory managment
 - (void)dealloc
 {
-    [_dayPicker release];
-    _dayPicker = nil;
-    [_yearPicker release];
-    _yearPicker = nil;
-    [_monthImage release];
-    _monthImage = nil;
-    [_dayImage release];
-    _dayImage = nil;
-    [_yearImage release];
-    _yearImage = nil;
-    [_monthImage release];
-    _monthImage = nil;
-    [_calendar release];
-    _calendar = nil;
-    
+  [_dayPicker release];
+  _dayPicker = nil;
+  [_yearPicker release];
+  _yearPicker = nil;
+  [_monthImage release];
+  _monthImage = nil;
+  [_dayImage release];
+  _dayImage = nil;
+  [_yearImage release];
+  _yearImage = nil;
+  [_monthImage release];
+  _monthImage = nil;
+  [_calendar release];
+  _calendar = nil;
+  [_customDatePickerChangeCallback release];
+  _customDatePickerChangeCallback = nil;
+  [_date release];
+  [_maximumDate release];
+  _maximumDate = nil;
+  [_minimumDate release];
+  _minimumDate = nil;
+  [_timeZone release];
+  _timeZone = nil;
     [super dealloc];
 }
 

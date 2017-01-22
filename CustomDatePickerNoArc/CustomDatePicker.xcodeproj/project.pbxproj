@@ -6,6 +6,33 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F09FA4A81E1C1608008D3B19 /* OCLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F09FA4A91E1C1608008D3B19 /* Build configuration list for PBXAggregateTarget "OCLint" */;
+			buildPhases = (
+				F09FA4AE1E1C165A008D3B19 /* OCLint */,
+			);
+			dependencies = (
+				F09FA4B01E1C1695008D3B19 /* PBXTargetDependency */,
+			);
+			name = OCLint;
+			productName = OCLint;
+		};
+		F09FA4EB1E1CF2A6008D3B19 /* FauxPas */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F09FA4EC1E1CF2A6008D3B19 /* Build configuration list for PBXAggregateTarget "FauxPas" */;
+			buildPhases = (
+				F09FA4F31E1CF2FE008D3B19 /* Run Faux Pas */,
+			);
+			dependencies = (
+				F09FA4F21E1CF2FA008D3B19 /* PBXTargetDependency */,
+			);
+			name = FauxPas;
+			productName = FauxPas;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8405001E17BCE9A6002FBB27 /* year.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001B17BCE9A6002FBB27 /* year.png */; };
 		8405001F17BCE9A6002FBB27 /* month.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405001C17BCE9A6002FBB27 /* month.png */; };
@@ -27,6 +54,23 @@
 		F0A049E81D34D8FD0083B0CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A049E61D34D8FD0083B0CD /* LaunchScreen.storyboard */; };
 		F0A049EA1D34D9730083B0CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A049E91D34D9730083B0CD /* Images.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F09FA4AF1E1C1695008D3B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84AAB22117BB5EB100A3F547 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84AAB22817BB5EB100A3F547;
+			remoteInfo = CustomDatePicker;
+		};
+		F09FA4F11E1CF2FA008D3B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84AAB22117BB5EB100A3F547 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84AAB22817BB5EB100A3F547;
+			remoteInfo = CustomDatePicker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8405001B17BCE9A6002FBB27 /* year.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = year.png; path = images/year.png; sourceTree = "<group>"; };
@@ -161,6 +205,8 @@
 				84AAB22517BB5EB100A3F547 /* Sources */,
 				84AAB22617BB5EB100A3F547 /* Frameworks */,
 				84AAB22717BB5EB100A3F547 /* Resources */,
+				F09FA49D1E1BD33C008D3B19 /* InferAnalyses */,
+				F09FA4EA1E1CF258008D3B19 /* FauxPas */,
 			);
 			buildRules = (
 			);
@@ -177,8 +223,21 @@
 		84AAB22117BB5EB100A3F547 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Zorin;
+				TargetAttributes = {
+					84AAB22817BB5EB100A3F547 = {
+						DevelopmentTeam = DB8672ACK3;
+					};
+					F09FA4A81E1C1608008D3B19 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					F09FA4EB1E1CF2A6008D3B19 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 84AAB22417BB5EB100A3F547 /* Build configuration list for PBXProject "CustomDatePicker" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -193,6 +252,8 @@
 			projectRoot = "";
 			targets = (
 				84AAB22817BB5EB100A3F547 /* CustomDatePicker */,
+				F09FA4A81E1C1608008D3B19 /* OCLint */,
+				F09FA4EB1E1CF2A6008D3B19 /* FauxPas */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +279,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F09FA49D1E1BD33C008D3B19 /* InferAnalyses */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = InferAnalyses;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Infer\" ]; then\ncleanFolders()\n{\n    PROJECT_BUILD_DIR=${PROJECT_DIR}/build\n   INFER_OUT_DIR=${PROJECT_DIR}/infer-out\n   if [ -d \"$PROJECT_BUILD_DIR\" ]; then\n        rm -r -f ${PROJECT_BUILD_DIR} ${INFER_OUT_DIR}\n        echo deleted infer and build folders\n   fi\n}\ncleanFolders\nexport LC_ALL=en_US.UTF-8\nPLATFORM=\"$(echo \"$EFFECTIVE_PLATFORM_NAME\" | sed 's/-//g')\"\nRUN_INFER_CLI=\"$(echo infer -- xcodebuild -target ${EXECUTABLE_NAME} -configuration Release -sdk ${PLATFORM})\"\n${RUN_INFER_CLI}\ncleanFolders\nfi";
+		};
+		F09FA4AE1E1C165A008D3B19 /* OCLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = OCLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${SRCROOT}\nxcodebuild clean\nxcodebuild | xcpretty -r json-compilation-database --output compile_commands.json\noclint-json-compilation-database -- -report-type xcode -enable-clang-static-analyzer";
+		};
+		F09FA4EA1E1CF258008D3B19 /* FauxPas */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = FauxPas;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "[[ ${FAUXPAS_SKIP} == 1 ]] && exit 0\n \n FAUXPAS_PATH=\"/usr/local/bin/fauxpas\"\n if [[ -f \"${FAUXPAS_PATH}\" ]]; then\n \"${FAUXPAS_PATH}\" check-xcode\n else\n echo \"warning: Faux Pas was not found at '${FAUXPAS_PATH}'\"\n fi";
+		};
+		F09FA4F31E1CF2FE008D3B19 /* Run Faux Pas */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Faux Pas";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/fauxpas -o xcode check \"${PROJECT_NAME}.xcodeproj\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84AAB22517BB5EB100A3F547 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -232,6 +352,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F09FA4B01E1C1695008D3B19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84AAB22817BB5EB100A3F547 /* CustomDatePicker */;
+			targetProxy = F09FA4AF1E1C1695008D3B19 /* PBXContainerItemProxy */;
+		};
+		F09FA4F21E1CF2FA008D3B19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84AAB22817BB5EB100A3F547 /* CustomDatePicker */;
+			targetProxy = F09FA4F11E1CF2FA008D3B19 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		84AAB23517BB5EB100A3F547 /* InfoPlist.strings */ = {
@@ -275,26 +408,35 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,18 +449,27 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,10 +482,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = DB8672ACK3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePicker/CustomDatePicker-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePicker/CustomDatePicker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Zorin.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -346,13 +498,192 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = DB8672ACK3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CustomDatePicker/CustomDatePicker-Prefix.pch";
 				INFOPLIST_FILE = "CustomDatePicker/CustomDatePicker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Zorin.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F09FA4A61E1BF4D1008D3B19 /* Infer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Infer;
+		};
+		F09FA4A71E1BF4D1008D3B19 /* Infer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = DB8672ACK3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CustomDatePicker/CustomDatePicker-Prefix.pch";
+				INFOPLIST_FILE = "CustomDatePicker/CustomDatePicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Zorin.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Infer;
+		};
+		F09FA4AA1E1C1608008D3B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F09FA4AB1E1C1608008D3B19 /* Infer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Infer;
+		};
+		F09FA4AC1E1C1608008D3B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F09FA4E61E1CEFF0008D3B19 /* FauxPas */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = FauxPas;
+		};
+		F09FA4E71E1CEFF0008D3B19 /* FauxPas */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = DB8672ACK3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CustomDatePicker/CustomDatePicker-Prefix.pch";
+				INFOPLIST_FILE = "CustomDatePicker/CustomDatePicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Zorin.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = FauxPas;
+		};
+		F09FA4E81E1CEFF0008D3B19 /* FauxPas */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = FauxPas;
+		};
+		F09FA4ED1E1CF2A6008D3B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F09FA4EE1E1CF2A6008D3B19 /* FauxPas */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = FauxPas;
+		};
+		F09FA4EF1E1CF2A6008D3B19 /* Infer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Infer;
+		};
+		F09FA4F01E1CF2A6008D3B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -363,6 +694,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84AAB24D17BB5EB100A3F547 /* Debug */,
+				F09FA4E61E1CEFF0008D3B19 /* FauxPas */,
+				F09FA4A61E1BF4D1008D3B19 /* Infer */,
 				84AAB24E17BB5EB100A3F547 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -372,7 +705,31 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84AAB25017BB5EB100A3F547 /* Debug */,
+				F09FA4E71E1CEFF0008D3B19 /* FauxPas */,
+				F09FA4A71E1BF4D1008D3B19 /* Infer */,
 				84AAB25117BB5EB100A3F547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F09FA4A91E1C1608008D3B19 /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F09FA4AA1E1C1608008D3B19 /* Debug */,
+				F09FA4E81E1CEFF0008D3B19 /* FauxPas */,
+				F09FA4AB1E1C1608008D3B19 /* Infer */,
+				F09FA4AC1E1C1608008D3B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F09FA4EC1E1CF2A6008D3B19 /* Build configuration list for PBXAggregateTarget "FauxPas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F09FA4ED1E1CF2A6008D3B19 /* Debug */,
+				F09FA4EE1E1CF2A6008D3B19 /* FauxPas */,
+				F09FA4EF1E1CF2A6008D3B19 /* Infer */,
+				F09FA4F01E1CF2A6008D3B19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
